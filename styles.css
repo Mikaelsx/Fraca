@@ -1,0 +1,195 @@
+/* Reset CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Kanit', sans-serif;
+    background-color: #1c1434;
+    color: white;
+}
+
+.header {
+    text-align: center;
+    padding: 20px;
+    background-color: #1c1434;
+    position: relative;
+    overflow: hidden; /* Para garantir que a animação não ultrapasse os limites */
+    transition: background-color 0.3s ease-in-out;
+    border-bottom: 2px solid white; /* Adiciona a borda branca abaixo do cabeçalho */
+}
+
+.header:hover {
+    background-color: #2b2146; /* Cor mais escura ao passar o mouse */
+}
+
+.logo {
+    width: 100px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.header:hover .logo {
+    transform: scale(1.1); /* Aumenta o tamanho do logo ao passar o mouse */
+}
+
+.hero {
+    position: relative;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.hero-image {
+    width: 100%;
+    height: auto;
+}
+
+.cta-button {
+    position: absolute;
+    bottom: -5px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.button {
+    width: 100%;
+    background-color: transparent;
+    color: white;
+    padding: 15px 30px;
+    text-decoration: none;
+    font-size: 20px;
+    border-top: solid 3px #FFFFFF;
+    background-color: #5AC7AA;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+}
+
+.button:hover {
+    background-color: #3D8B78;
+    color: #FFFFFF;
+    transform: translateY(-5px);
+}
+
+/* Seções da página */
+.popular, .products, .instagram {
+    padding: 20px;
+}
+
+h2 {
+    font-family: 'Kanit', sans-serif;
+    margin-bottom: 20px;
+    font-size: 24px;
+    text-transform: uppercase;
+    position: relative;
+    padding-bottom: 10px; /* Espaço para a linha abaixo do texto */
+}
+
+h2::after {
+    content: "";
+    display: block;
+    width: 80%; /* Largura da linha */
+    height: 2px; /* Espessura da linha */
+    background-color: white; /* Cor da linha */
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 20px;
+}
+
+.product-card {
+    background-color: #2b2146;
+    padding: 10px;
+    border-radius: 8px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease;
+    position: relative;
+    border: 2px solid transparent; /* Borda transparente como padrão */
+}
+
+.product-card img {
+    width: 100%;
+    border-radius: 8px;
+}
+
+.buy-button {
+    background-color: #5AC7AA;
+    color: white;
+    padding: 15px;
+    border: none;
+    width: 100%;
+    cursor: pointer;
+    font-size: 18px;
+    margin-top: 10px;
+    border-radius: 5px;
+    opacity: 0; /* Esconde o botão inicialmente */
+    transform: translateY(10px); /* Move o botão um pouco para baixo */
+    transition: opacity 0.3s ease, transform 0.3s ease, background-color 0.3s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+    border: 2px solid #5AC7AA; /* Muda a cor da borda ao passar o mouse */
+}
+
+.product-card:hover .buy-button {
+    opacity: 1; /* Exibe o botão ao passar o mouse */
+    transform: translateY(0); /* Move o botão para sua posição original */
+}
+
+.product-card:active {
+    border: 2px solid #4CA893; /* Muda a cor da borda ao clicar */
+    transform: translateY(-5px); /* Reduz o movimento do card ao clicar */
+}
+
+.product-card:active .buy-button {
+    background-color: #3D8B78; /* Muda a cor do botão ao clicar */
+    transform: scale(1); /* Reduz o tamanho do botão ao clicar */
+}
+
+.instagram-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.instagram-post {
+    background-color: #2b2146;
+    padding: 50px;
+    border-radius: 8px;
+}
+
+.footer {
+    text-align: center;
+    padding: 20px;
+    font-size: 14px;
+    background-color: #1c1434;
+    color: #aaa;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .hero-image {
+        height: auto;
+    }
+
+    .cta-button {
+        position: static;
+        margin-top: -5px;
+    }
+
+    .product-grid, .instagram-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .button {
+        font-size: 16px;
+        padding: 10px 20px;
+    }
+}
